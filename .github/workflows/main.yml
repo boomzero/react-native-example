@@ -25,7 +25,11 @@ jobs:
           npm install
       - name: configure env
         run: |
-          cp .env.example .env
+          echo << EOF > .env
+          STREAM_API_KEY=test
+          STREAM_API_SECRET=test
+          STREAM_APP_ID=test
+          EOF
       - name: Run tests
         run: |
           npm test
