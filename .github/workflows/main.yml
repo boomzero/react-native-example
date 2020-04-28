@@ -31,6 +31,9 @@ jobs:
           STREAM_API_SECRET=test
           STREAM_APP_ID=test
           EOF
+      - name: show env file
+        run: |
+          cat .env
       - name: Run tests
         run: |
           npm test
