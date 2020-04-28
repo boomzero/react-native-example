@@ -27,10 +27,10 @@ jobs:
       - name: configure env
         run: |
           cat << EOF > .env
-STREAM_API_KEY=test
-STREAM_API_SECRET=test
-STREAM_APP_ID=test
-EOF
+          STREAM_API_KEY=test
+          STREAM_API_SECRET=test
+          STREAM_APP_ID=test
+          EOF
       - name: show env file
         run: |
           cat .env
