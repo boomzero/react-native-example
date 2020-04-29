@@ -24,16 +24,17 @@ jobs:
       - name: Install npm dependencies
         run: |
           npm install
-      - name: configure env
-        run: |
-          cat << EOF > .env
-          STREAM_API_KEY=test
-          STREAM_API_TOKEN=test
-          STREAM_APP_ID=test
-          EOF
-      - name: show env file
-        run: |
-          cat .env
+#       - name: configure env
+#         run: |
+#           cat << EOF > .env
+#           STREAM_API_KEY=test
+#           STREAM_API_TOKEN=test
+#           STREAM_APP_ID=test
+#           EOF
       - name: Run tests
+        env: # Set the secret as an input
+          STREAM_API_KEY: ${{ secrets.STREAM_API_KEY }}
+          STREAM_API_TOKEN: ${{ secrets.STREAM_API_TOKEN }}
+          STREAM_APP_ID: ${{ secrets.STREAM_APP_ID }}
         run: |
           npm test
